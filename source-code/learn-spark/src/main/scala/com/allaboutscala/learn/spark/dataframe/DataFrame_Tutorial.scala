@@ -36,4 +36,21 @@ object DataFrame_Tutorial extends App with Context {
   dfTags.show(10)
 
 
+  // Print DataFrame schema
+  dfTags.printSchema()
+
+
+  // Query dataframe: select columns from a dataframe
+  dfTags.select("id", "tag").show(10)
+
+
+  // DataFrame Query: filter by column value of a dataframe
+  dfTags.filter("tag == 'php'").show(10)
+
+
+  // DataFrame Query: count rows of a dataframe
+  println(s"Number of php tags = ${ dfTags.filter("tag == 'php'").count() }")
+
+
+
 }
