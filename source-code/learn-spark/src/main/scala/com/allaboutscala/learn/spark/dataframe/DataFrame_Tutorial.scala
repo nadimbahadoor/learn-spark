@@ -52,5 +52,30 @@ object DataFrame_Tutorial extends App with Context {
   println(s"Number of php tags = ${ dfTags.filter("tag == 'php'").count() }")
 
 
+  // DataFrame Query: SQL like query
+  dfTags.filter("tag like 's%'").show(10)
+
+
+  // DataFrame Query: Multiple filter chaining
+  dfTags
+    .filter("tag like 's%'")
+    .filter("id == 25 or id == 108")
+    .show(10)
+
+
+  // DataFrame Query: SQL IN clause
+  dfTags.filter("id in (25, 108)").show(10)
+
+
+  // DataFrame Query: SQL Group By
+  println("Group by tag value")
+  dfTags.groupBy("tag").count().show(10)
+
+
+  // DataFrame Query: SQL Group By with filter
+  dfTags.groupBy("tag").count().filter("count > 5").show(10)
+
+
+  sparkSession.stop()
 
 }
