@@ -76,6 +76,40 @@ object DataFrame_Tutorial extends App with Context {
   dfTags.groupBy("tag").count().filter("count > 5").show(10)
 
 
+  // DataFrame Query: SQL order by
+  dfTags.groupBy("tag").count().filter("count > 5").orderBy("tag").show(10)
+
+
+  // DataFrame Query: Cast columns to specific data type
+  val dfQuestionsCSV = sparkSession
+    .read
+    .option("header", "true")
+    .option("inferSchema", "true")
+    .option("dateFormat","yyyy-MM-dd HH:mm:ss")
+    .csv("src/main/resources/questions_10K.csv")
+    .toDF("id", "creation_date", "closed_date", "deletion_date", "score", "owner_userid", "answer_count")
+
+  dfQuestionsCSV.printSchema()
+
+  val dfQuestions = dfQuestionsCSV.select(
+    dfQuestionsCSV.col("id").cast("integer"),
+    dfQuestionsCSV.col("creation_date").cast("timestamp"),
+    dfQuestionsCSV.col("closed_date").cast("timestamp"),
+    dfQuestionsCSV.col("deletion_date").cast("date"),
+    dfQuestionsCSV.col("score").cast("integer"),
+    dfQuestionsCSV.col("owner_userid").cast("integer"),
+    dfQuestionsCSV.col("answer_count").cast("integer")
+  )
+
+  dfQuestions.printSchema()
+  dfQuestions.show(10)
+
+
+  // DataFrame Query: Operate on a sliced dataframe
+  val dfQuestionsSubset = dfQuestions.filter("score > 400 and score < 410").toDF()
+  dfQuestionsSubset.show()
+
+
   sparkSession.stop()
 
 }
