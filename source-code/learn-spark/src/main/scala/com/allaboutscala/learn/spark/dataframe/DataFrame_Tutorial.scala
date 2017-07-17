@@ -110,6 +110,40 @@ object DataFrame_Tutorial extends App with Context {
   dfQuestionsSubset.show()
 
 
+  // DataFrame Query: Join
+  dfQuestionsSubset.join(dfTags, "id").show(10)
+
+
+  // DataFrame Query: Join and select columns
+  dfQuestionsSubset
+    .join(dfTags, "id")
+    .select("owner_userid", "tag", "creation_date", "score")
+    .show(10)
+
+
+  // DataFrame Query: Join on explicit columns
+  dfQuestionsSubset
+    .join(dfTags, dfTags("id") === dfQuestionsSubset("id"))
+    .show(10)
+
+
+  // DataFrame Query: Inner Join
+  dfQuestionsSubset
+    .join(dfTags, Seq("id"), "inner")
+    .show(10)
+
+
+  // DataFrame Query: Left Outer Join
+  dfQuestionsSubset
+    .join(dfTags, Seq("id"), "left_outer")
+    .show(10)
+
+
+  // DataFrame Query: Right Outer Join
+  dfTags
+    .join(dfQuestionsSubset, Seq("id"), "right_outer")
+    .show(10)
+
   sparkSession.stop()
 
 }
