@@ -51,6 +51,56 @@ object SparkSQL_Tutorial extends App with Context {
    //  dfTags.select("id", "tag").show(10)
 
 
-  
+  // Filter by column value
+  sparkSession
+    .sql("select * from so_tags where tag = 'php'")
+    .show(10)
+  // dfTags.filter("tag == 'php'").show(10)
 
+
+  // Count number of rows
+  sparkSession
+    .sql(
+      """select
+        |count(*) as php_count
+        |from so_tags where tag='php'""".stripMargin)
+    .show(10)
+//  println(s"Number of php tags = ${ dfTags.filter("tag == 'php'").count() }")
+
+
+  // SQL like
+  sparkSession
+    .sql(
+      """select *
+        |from so_tags
+        |where tag like 's%'""".stripMargin)
+    .show(10)
+  //  dfTags.filter("tag like 's%'").show(10)
+
+
+  // SQL where with and clause
+  sparkSession
+    .sql(
+      """select *
+        |from so_tags
+        |where tag like 's%'
+        |and (id = 25 or id = 108)""".stripMargin)
+    .show(10)
+//  dfTags
+//    .filter("tag like 's%'")
+//    .filter("id == 25 or id == 108")
+//    .show(10)
+
+
+  // SQL IN clause
+  sparkSession
+    .sql(
+      """select *
+        |from so_tags
+        |where id in (25, 108)""".stripMargin)
+    .show(10)
+//  dfTags.filter("id in (25, 108)").show(10)
+
+
+  sparkSession.stop()
 }
