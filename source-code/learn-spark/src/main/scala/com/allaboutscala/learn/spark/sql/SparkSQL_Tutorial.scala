@@ -102,5 +102,31 @@ object SparkSQL_Tutorial extends App with Context {
 //  dfTags.filter("id in (25, 108)").show(10)
 
 
+  // SQL Group By
+  sparkSession
+    .sql(
+      """select tag, count(*) as count
+        |from so_tags group by tag""".stripMargin)
+    .show(10)
+//  dfTags.groupBy("tag").count().show(10)
+
+
+  // SQL Group By with having clause
+  sparkSession
+    .sql(
+      """select tag, count(*) as count
+        |from so_tags group by tag having count > 5""".stripMargin)
+    .show(10)
+//  dfTags.groupBy("tag").count().filter("count > 5").show(10)
+
+
+  // SQL Order by
+  sparkSession
+    .sql(
+      """select tag, count(*) as count
+        |from so_tags group by tag having count > 5 order by tag""".stripMargin)
+    .show(10)
+//  dfTags.groupBy("tag").count().filter("count > 5").orderBy("tag").show(10)
+
   sparkSession.stop()
 }
