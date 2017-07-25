@@ -1,6 +1,5 @@
 package com.allaboutscala.learn.spark.sql
 
-import com.allaboutscala.learn.spark.dataframe.DataFrame_Tutorial._
 import com.allaboutscala.learn.spark.utils.Context
 
 /**
@@ -207,6 +206,23 @@ object SparkSQL_Tutorial extends App with Context {
 //  dfTags
 //    .join(dfQuestionsSubset, Seq("id"), "right_outer")
 //    .show(10)
+
+
+  // Register User Defined Function (UDF)
+  // Function to prefix a String with so_ short for StackOverflow
+  def prefixStackoverflow(s: String): String = s"so_$s"
+
+  // Register User Defined Function (UDF)
+  sparkSession
+    .udf
+    .register("prefix_so", prefixStackoverflow _)
+
+  // Use udf prefix_so to augment each tag value with so_
+  sparkSession
+    .sql("""select id, prefix_so(tag)
+      |from so_tags""".stripMargin)
+    .show(10)
+
 
 
 
