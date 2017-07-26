@@ -63,6 +63,29 @@ object DataFrameStatistics_Tutorial extends App {
     .show()
 
 
+  // Maximum
+  dfQuestions
+    .select(max("score"))
+    .show()
 
 
+  // Minimum
+  dfQuestions
+    .select(min("score"))
+    .show()
+
+
+  // Mean
+  dfQuestions
+    .select(mean("score"))
+    .show()
+
+
+  // Sum
+  dfQuestions
+    .select(sum("score"))
+    .show()
+
+
+  sparkSession.close()
 }
