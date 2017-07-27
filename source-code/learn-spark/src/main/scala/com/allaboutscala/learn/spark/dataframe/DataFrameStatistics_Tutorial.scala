@@ -87,5 +87,15 @@ object DataFrameStatistics_Tutorial extends App {
     .show()
 
 
+  // Group by with statistics
+  dfQuestions
+    .filter("id > 400 and id < 450")
+    .filter("owner_userid is not null")
+    .join(dfTags, dfQuestions.col("id").equalTo(dfTags("id")))
+    .groupBy(dfQuestions.col("owner_userid"))
+    .agg(avg("score"), max("answer_count"))
+    .show()
+
+
   sparkSession.close()
 }
