@@ -97,5 +97,33 @@ object DataFrameStatistics_Tutorial extends App {
     .show()
 
 
+  // DataFrame Statistics using describe() method
+  val dfQuestionsStatistics = dfQuestions.describe()
+  dfQuestionsStatistics.show()
+
+
+  // Correlation
+  val correlation = dfQuestions.stat.corr("score", "answer_count")
+  println(s"correlation between column score and answer_count = $correlation")
+
+
+  // Covariance
+  val covariance = dfQuestions.stat.cov("score", "answer_count")
+  println(s"covariance between column score and answer_count = $covariance")
+
+
+  // Frequent Items
+  val dfFrequentScore = dfQuestions.stat.freqItems(Seq("answer_count"))
+  dfFrequentScore.show()
+
+
+  // Crosstab
+  val dfScoreByUserid = dfQuestions
+    .filter("owner_userid > 0 and owner_userid < 20")
+    .stat
+    .crosstab("score", "owner_userid")
+  dfScoreByUserid.show(10)
+
+
   sparkSession.close()
 }
