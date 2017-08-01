@@ -125,5 +125,42 @@ object DataFrameStatistics_Tutorial extends App {
   dfScoreByUserid.show(10)
 
 
+  // Stratified sampling using sampleBy
+  // find all rows where answer_count in (5, 10, 20)
+  val dfQuestionsByAnswerCount = dfQuestions
+    .filter("owner_userid > 0")
+    .filter("answer_count in (5, 10, 20)")
+
+  // count how many rows match answer_count in (5, 10, 20)
+  dfQuestionsByAnswerCount
+    .groupBy("answer_count")
+    .count()
+    .show()
+
+  // Create a fraction map where we are only interested:
+  // - 50% of the rows that have answer_count = 5
+  // - 10% of the rows that have answer_count = 10
+  // - 100% of the rows that have answer_count = 20
+  // Note also that fractions should be in the range [0, 1]
+  val fractionKeyMap = Map(5 -> 0.5, 10 -> 0.1, 20 -> 1.0)
+
+  // Stratified sample using the fractionKeyMap.
+  dfQuestionsByAnswerCount
+    .stat
+    .sampleBy("answer_count", fractionKeyMap, 7L)
+    .groupBy("answer_count")
+    .count()
+    .show()
+
+  // Note that changing the random seed will modify your sampling outcome. As an example, let's change the random seed to 37.
+  dfQuestionsByAnswerCount
+    .stat
+    .sampleBy("answer_count", fractionKeyMap, 37L)
+    .groupBy("answer_count")
+    .count()
+    .show()
+
+
+
   sparkSession.close()
 }
