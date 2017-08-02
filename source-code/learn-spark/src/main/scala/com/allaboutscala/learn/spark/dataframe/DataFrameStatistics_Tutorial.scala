@@ -1,6 +1,6 @@
 package com.allaboutscala.learn.spark.dataframe
 
-import com.allaboutscala.learn.spark.sql.SparkSQL_Tutorial._
+import com.allaboutscala.learn.spark.utils.Context
 
 /**
   * Created by Nadim Bahadoor on 28/06/2016.
@@ -23,7 +23,7 @@ import com.allaboutscala.learn.spark.sql.SparkSQL_Tutorial._
   * License for the specific language governing permissions and limitations under
   * the License.
   */
-object DataFrameStatistics_Tutorial extends App {
+object DataFrameStatistics_Tutorial extends App with Context {
 
   // Create a dataframe from tags file question_tags_10K.csv
   val dfTags = sparkSession
@@ -158,6 +158,20 @@ object DataFrameStatistics_Tutorial extends App {
     .sampleBy("answer_count", fractionKeyMap, 37L)
     .groupBy("answer_count")
     .count()
+    .show()
+
+
+  // Approximate Quantile
+  val quantiles = dfQuestions
+    .stat
+    .approxQuantile("score", Array(0, 0.5, 1), 0.25)
+  println(s"Qauntiles segments = ${quantiles.toSeq}")
+
+
+  // You can verify the quantiles statistics above using Spark SQL as follows:
+  dfQuestions.createOrReplaceTempView("so_questions")
+  sparkSession
+    .sql("select min(score), percentile_approx(score, 0.25), max(score) from so_questions")
     .show()
 
 
