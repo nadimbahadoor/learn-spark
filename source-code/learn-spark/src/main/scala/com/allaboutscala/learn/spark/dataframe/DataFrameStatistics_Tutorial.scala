@@ -175,6 +175,13 @@ object DataFrameStatistics_Tutorial extends App with Context {
     .show()
 
 
+  // Bloom Filter
+  val tagsBloomFilter = dfTags.stat.bloomFilter("tag", 1000L, 0.1)
+
+  println(s"bloom filter contains java tag = ${tagsBloomFilter.mightContain("java")}")
+  println(s"bloom filter contains some unknown tag = ${tagsBloomFilter.mightContain("unknown tag")}")
+
+
 
   sparkSession.close()
 }
