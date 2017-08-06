@@ -224,6 +224,13 @@ object SparkSQL_Tutorial extends App with Context {
     .show(10)
 
 
+  // SQL Distinct
+  sparkSession
+    .sql("""select distinct tag
+        |from so_tags""".stripMargin)
+    .show(10)
+
+
 
 
   sparkSession.stop()

@@ -144,6 +144,15 @@ object DataFrame_Tutorial extends App with Context {
     .join(dfQuestionsSubset, Seq("id"), "right_outer")
     .show(10)
 
+
+  // DataFrame Query: Distinct
+  dfTags
+    .select("tag")
+    .distinct()
+    .show(10)
+
+
+
   sparkSession.stop()
 
 }
