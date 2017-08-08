@@ -187,6 +187,12 @@ object DataFrameStatistics_Tutorial extends App with Context {
   println(s"Estimated frequency for tag java = $estimatedFrequency")
 
 
+  // Sampling With Replacement
+  val dfTagsSample = dfTags.sample(true, 0.2, 37L)
+  println(s"Number of rows in sample dfTagsSample = ${dfTagsSample.count()}")
+  println(s"Number of rows in dfTags = ${dfTags.count()}")
+
+
 
 
 
