@@ -61,7 +61,40 @@ object DataFrameOperations extends App with Context {
   val dfTagsOfTag: Dataset[Tag] = dfTags.as[Tag]
   dfTagsOfTag
     .take(10)
-    .map(t => println(s"id = ${t.id}, tag = ${t.tag}"))
+    .foreach(t => println(s"id = ${t.id}, tag = ${t.tag}"))
+
+
+  // DataFrame row to Scala case class using map()
+  case class Question(owner_userid: Int, tag: String, creationDate: java.sql.Timestamp, score: Int)
+
+  // create a function which will parse each element in the row
+  def toQuestion(row: org.apache.spark.sql.Row): Question = {
+    // to normalize our owner_userid data
+    val IntOf: String => Option[Int] = _ match {
+      case s if s == "NA" => None
+      case s => Some(s.toInt)
+    }
+
+    import java.time._
+    val DateOf: String => java.sql.Timestamp = _ match {
+      case s => java.sql.Timestamp.valueOf(ZonedDateTime.parse(s).toLocalDateTime)
+    }
+
+    Question (
+      owner_userid = IntOf(row.getString(0)).getOrElse(-1),
+      tag = row.getString(1),
+      creationDate = DateOf(row.getString(2)),
+      score = row.getString(3).toInt
+    )
+  }
+
+  // now let's convert each row into a Question case class
+  import sparkSession.implicits._
+  val dfOfQuestion: Dataset[Question] = dfQuestions.map(row => toQuestion(row))
+  dfOfQuestion
+    .take(10)
+    .foreach(q => println(s"owner userid = ${q.owner_userid}, tag = ${q.tag}, creation date = ${q.creationDate}, score = ${q.score}"))
+
 
 
 
