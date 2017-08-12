@@ -96,6 +96,20 @@ object DataFrameOperations extends App with Context {
     .foreach(q => println(s"owner userid = ${q.owner_userid}, tag = ${q.tag}, creation date = ${q.creationDate}, score = ${q.score}"))
 
 
+  // Create DataFrame from collection
+  val seqTags = Seq(
+    1 -> "so_java",
+    1 -> "so_jsp",
+    2 -> "so_erlang",
+    3 -> "so_scala",
+    3 -> "so_akka"
+  )
+
+  import sparkSession.implicits._
+  val dfMoreTags = seqTags.toDF("id", "tag")
+  dfMoreTags.show(10)
+
+
 
 
   sparkSession.close()
