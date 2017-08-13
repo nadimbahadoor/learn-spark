@@ -110,6 +110,11 @@ object DataFrameOperations extends App with Context {
   dfMoreTags.show(10)
 
 
+  // DataFrame Union
+  val dfUnionOfTags = dfTags
+    .union(dfMoreTags)
+    .filter("id in (1,3)")
+  dfUnionOfTags.show(10)
 
 
   sparkSession.close()
