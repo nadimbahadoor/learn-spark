@@ -117,6 +117,12 @@ object DataFrameOperations extends App with Context {
   dfUnionOfTags.show(10)
 
 
+  // DataFrame Intersection
+  val dfIntersectionTags = dfMoreTags
+    .intersect(dfUnionOfTags)
+    .show(10)
+
+
   sparkSession.close()
 
 
