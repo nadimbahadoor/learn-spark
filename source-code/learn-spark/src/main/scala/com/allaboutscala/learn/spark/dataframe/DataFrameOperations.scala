@@ -123,6 +123,20 @@ object DataFrameOperations extends App with Context {
     .show(10)
 
 
+  // Append column to DataFrame using withColumn()
+  import org.apache.spark.sql.functions._
+  val dfSplitColumn = dfMoreTags
+    .withColumn("tmp", split($"tag", "_"))
+    .select(
+      $"id",
+      $"tag",
+      $"tmp".getItem(0).as("so_prefix"),
+      $"tmp".getItem(1).as("so_tag")
+    ).drop("tmp")
+  dfSplitColumn.show(10)
+
+
+
   sparkSession.close()
 
 
