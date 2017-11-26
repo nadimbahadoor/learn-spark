@@ -1,5 +1,16 @@
-# learn-spark
-Examples To Help You Learn Apache Spark 
+# Source Code For Scala Tutorials From www.allaboutscala.com/big-data/spark/
+## Introduction
+The Scala programming language is rapidly growing in popularity! Sadly, most of the online tutorials do not provide a step-by-step guide :(
+ 
+At www.allaboutscala.com, we provide a complete beginner's tutorial to help you learn Scala in **small**, **simple** and **easy steps**.
+
+- Tutorials are organized such that they allow you to **learn gradually**.
+- Tutorials are written by taking into account the **complete beginner**.
+- Tutorials will make you proficient with the same professional **tools used by the Scala experts**.
+
+# Learn Spark
+- Code snippets for [Learn Spark](http://allaboutscala.com/big-data/spark/)
+- For additional details, please visit www.allaboutscala.com
 
 The examples below are the source code for Spark Tutorials from [allaboutscala.com](http://allaboutscala.com/big-data/spark/)
 
