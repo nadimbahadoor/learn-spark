@@ -81,3 +81,12 @@ The examples below are the source code for Spark Tutorials from [allaboutscala.c
 - [DataFrame Union](http://allaboutscala.com/big-data/spark/#dataframe-union)
 - [DataFrame Intersection](http://allaboutscala.com/big-data/spark/#dataframe-intersection)
 - [Append column to DataFrame using withColumn()](http://allaboutscala.com/big-data/spark/#dataframe-append-column-withcolumn-method)
+
+
+Stay in touch via [Facebook](http://www.facebook.com/allaboutscala) and [Twitter](https://twitter.com/NadimBahadoor) for upcoming tutorials!
+
+## Contact
+Nadim Bahadoor at http://allaboutscala.com/contact/
+
+## License
+Apache 2.0 License - see the LICENSE.TXT file 
