@@ -93,6 +93,8 @@ The examples below are the source code for Spark Tutorials from [allaboutscala.c
 - [DataFrame Intersection](http://allaboutscala.com/big-data/spark/#dataframe-intersection)
 - [Append column to DataFrame using withColumn()](http://allaboutscala.com/big-data/spark/#dataframe-append-column-withcolumn-method)
 
+# Spark Functions
+- [Create DataFrame from Tuples](http://allaboutscala.com/big-data/spark/#create-dataframe-from-tuples)
 
 Stay in touch via [Facebook](http://www.facebook.com/allaboutscala) and [Twitter](https://twitter.com/NadimBahadoor) for upcoming tutorials!
 
