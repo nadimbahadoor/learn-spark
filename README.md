@@ -95,6 +95,7 @@ The examples below are the source code for Spark Tutorials from [allaboutscala.c
 
 # Spark Functions
 - [Create DataFrame from Tuples](http://allaboutscala.com/big-data/spark/#create-dataframe-from-tuples)
+- [Get DataFrame column names](http://allaboutscala.com/big-data/spark/#get-dataframe-column-names )
 
 Stay in touch via [Facebook](http://www.facebook.com/allaboutscala) and [Twitter](https://twitter.com/NadimBahadoor) for upcoming tutorials!
 
