@@ -1,0 +1,37 @@
+{
+  "stackoverflow": [{
+    "tag": {
+      "id": 1,
+      "name": "scala",
+      "author": "Martin Odersky",
+      "frameworks": [
+        {
+          "id": 1,
+          "name": "Play Framework"
+        },
+        {
+          "id": 2,
+          "name": "Akka Framework"
+        }
+      ]
+    }
+  },
+    {
+      "tag": {
+        "id": 2,
+        "name": "java",
+        "author": "James Gosling",
+        "frameworks": [
+          {
+            "id": 1,
+            "name": "Apache Tomcat"
+          },
+          {
+            "id": 2,
+            "name": "Spring Boot"
+          }
+        ]
+      }
+    }
+  ]
+}
