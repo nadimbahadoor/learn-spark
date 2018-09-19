@@ -101,6 +101,7 @@ The examples below are the source code for Spark Tutorials from [allaboutscala.c
 - [Concatenate DataFrames using join() method](http://allaboutscala.com/big-data/spark/#concatenate-dataframes-using-join)
 - [Search DataFrame column using array_contains() method](http://allaboutscala.com/big-data/spark/#search-dataframe-column-using-array-contains-method)
 - [Check DataFrame column exists](http://allaboutscala.com/big-data/spark/#check-dataframe-column-exists)
+- [Split DataFrame Array column](http://allaboutscala.com/big-data/spark/#split-dataframe-array-column)
 
 Stay in touch via [Facebook](http://www.facebook.com/allaboutscala) and [Twitter](https://twitter.com/NadimBahadoor) for upcoming tutorials!
 
