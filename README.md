@@ -103,6 +103,7 @@ The examples below are the source code for Spark Tutorials from [allaboutscala.c
 - [Check DataFrame column exists](http://allaboutscala.com/big-data/spark/#check-dataframe-column-exists)
 - [Split DataFrame Array column](http://allaboutscala.com/big-data/spark/#split-dataframe-array-column)
 - [Rename DataFrame column](http://allaboutscala.com/big-data/spark/#rename-dataframe-column)
+- [Create DataFrame constant column](http://allaboutscala.com/big-data/spark/#create-dataframe-constant-column)
 
 Stay in touch via [Facebook](http://www.facebook.com/allaboutscala) and [Twitter](https://twitter.com/NadimBahadoor) for upcoming tutorials!
 
