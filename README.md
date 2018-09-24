@@ -104,6 +104,7 @@ The examples below are the source code for Spark Tutorials from [allaboutscala.c
 - [Split DataFrame Array column](http://allaboutscala.com/big-data/spark/#split-dataframe-array-column)
 - [Rename DataFrame column](http://allaboutscala.com/big-data/spark/#rename-dataframe-column)
 - [Create DataFrame constant column](http://allaboutscala.com/big-data/spark/#create-dataframe-constant-column)
+- [DataFrame new column with User Defined Function (UDF)](http://allaboutscala.com/big-data/spark/#dataframe-new-column-with-udf)
 
 Stay in touch via [Facebook](http://www.facebook.com/allaboutscala) and [Twitter](https://twitter.com/NadimBahadoor) for upcoming tutorials!
 
