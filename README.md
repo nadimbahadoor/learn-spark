@@ -107,6 +107,7 @@ The examples below are the source code for Spark Tutorials from [allaboutscala.c
 - [DataFrame new column with User Defined Function (UDF)](http://allaboutscala.com/big-data/spark/#dataframe-new-column-with-udf)
 - [DataFrame first row](http://allaboutscala.com/big-data/spark/#dataframe-first-row)
 - [Format DataFrame column](http://allaboutscala.com/big-data/spark/#format-dataframe-column)
+- [DataFrame column hashing](http://allaboutscala.com/big-data/spark/#dataframe-column-hashing)
 
 Stay in touch via [Facebook](http://www.facebook.com/allaboutscala) and [Twitter](https://twitter.com/NadimBahadoor) for upcoming tutorials!
 
