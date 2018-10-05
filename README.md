@@ -108,6 +108,7 @@ The examples below are the source code for Spark Tutorials from [allaboutscala.c
 - [DataFrame first row](http://allaboutscala.com/big-data/spark/#dataframe-first-row)
 - [Format DataFrame column](http://allaboutscala.com/big-data/spark/#format-dataframe-column)
 - [DataFrame column hashing](http://allaboutscala.com/big-data/spark/#dataframe-column-hashing)
+- [DataFrame String functions](http://allaboutscala.com/big-data/spark/#dataframe-string-functions)
 
 Stay in touch via [Facebook](http://www.facebook.com/allaboutscala) and [Twitter](https://twitter.com/NadimBahadoor) for upcoming tutorials!
 
